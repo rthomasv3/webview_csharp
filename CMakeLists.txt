@@ -13,7 +13,7 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
         IMPORTED_TARGET
       )
     pkg_check_modules(
-        webkit2 REQUIRED webkit2gtk-4.0
+        webkit2 REQUIRED webkit2gtk-4.1
         IMPORTED_TARGET
       )
     set(CMAKE_CXX_FLAGS "-DWEBVIEW_STATIC")
