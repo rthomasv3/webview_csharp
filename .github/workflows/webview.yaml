@@ -1,7 +1,6 @@
 name: WebviewNative
 on:
-  push:
-    branches: [feature-nativeUpdate]
+  workflow_dispatch:
 
 jobs:
   build-linux:
@@ -23,7 +22,7 @@ jobs:
           name: "webview-linux64"
           path: ./build
 
-  build-macos:
+  build-macos-arm64:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +36,24 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: "webview-mac64"
+          name: "webview-mac-arm64"
+          path: ./build
+
+  build-macos-x64:
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get CMake
+        uses: lukka/get-cmake@latest
+      - name: Run CMake
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: 'ninja'
+          buildPreset: 'ninja'
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "webview-mac-x64"
           path: ./build
 
   build-windows:
