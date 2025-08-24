@@ -8,7 +8,7 @@
     <Owners>Gerrit 'Geaz' Gazic</Owners>
     <Description>C# bindings for zserge/webview - Batteries included</Description>
     <PackageId>SharpWebview</PackageId>
-    <PackageVersion>0.11.1</PackageVersion>
+    <PackageVersion>0.11.2</PackageVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/webview/webview_csharp</PackageProjectUrl>
   </PropertyGroup>
@@ -22,8 +22,12 @@
       <PackagePath>runtimes\win-x64\native\WebView2Loader.dll</PackagePath>
       <Pack>true</Pack>
     </Content>
-    <Content Include="..\..\libs\libwebview.dylib">
+    <Content Include="..\..\libs\libwebview-x64.dylib">
       <PackagePath>runtimes\osx-x64\native\libwebview.dylib</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="..\..\libs\libwebview-arm64.dylib">
+      <PackagePath>runtimes\osx-arm64\native\libwebview.dylib</PackagePath>
       <Pack>true</Pack>
     </Content>
     <Content Include="..\..\libs\libwebview.so">
